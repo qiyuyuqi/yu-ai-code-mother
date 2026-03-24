@@ -2,7 +2,11 @@ package com.yuqi.yuaicodemother.service;
 
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
+import com.yuqi.yuaicodemother.model.dto.user.UserQueryRequest;
+import com.yuqi.yuaicodemother.model.entity.App;
 import com.yuqi.yuaicodemother.model.entity.User;
+import com.yuqi.yuaicodemother.model.vo.AppVO;
+import com.yuqi.yuaicodemother.model.vo.LoginUserVO;
 import com.yuqi.yuaicodemother.model.vo.UserVO;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -11,7 +15,7 @@ import java.util.List;
 /**
  * 用户 服务层。
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
+ * @author <a href="https://github.com/liyupi">wuyq</a>
  */
 public interface UserService extends IService<User> {
     /**
@@ -73,13 +77,6 @@ public interface UserService extends IService<User> {
      */
     List<UserVO> getUserVOList(List<User> userList);
 
-    /**
-     * 用户注销
-     *
-     * @param request
-     * @return 退出登录是否成功
-     */
-    boolean userLogout(HttpServletRequest request);
 
     /**
      * 根据查询条件构造数据查询参数
@@ -97,5 +94,6 @@ public interface UserService extends IService<User> {
      * @return 加密后的用户密码
      */
     String getEncryptPassword(String userPassword);
+
 
 }

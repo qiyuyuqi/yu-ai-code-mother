@@ -1,4 +1,17 @@
 spring:
+  # session 配置
+  session:
+    store-type: redis
+    # session 30 天过期
+    timeout: 2592000
+  # redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      ttl: 3600
+
   application:
     name: yu-ai-code-mother
   # mysql
@@ -11,6 +24,10 @@ server:
   port: 8123
   servlet:
     context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
 # springdoc-openapi
 springdoc:
   group-configs:
@@ -22,3 +39,22 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+# AI
+langchain4j:
+  open-ai:
+    chat-model:
+      base-url: https://api.deepseek.com
+      api-key: sk-df58a52a856341219f953d338032c063
+      model-name: deepseek-chat
+      max-tokens: 8192
+      log-requests: false
+      log-responses: false
+    streaming-chat-model:
+      base-url: https://api.deepseek.com
+      api-key: sk-df58a52a856341219f953d338032c063
+      model-name: deepseek-chat
+      max-tokens: 8192
+      log-requests: false
+      log-responses: false
+
+

@@ -6,7 +6,7 @@ import com.yuqi.yuaicodemother.model.entity.User;
 /**
  * 用户 映射层。
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
+ * @author <a href="https://github.com/liyupi">wuyq</a>
  */
 public interface UserMapper extends BaseMapper<User> {
 

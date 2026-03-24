@@ -1,20 +1,32 @@
 package com.yuqi.yuaicodemother.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.spring.service.impl.ServiceImpl;
 import com.yuqi.yuaicodemother.exception.BusinessException;
 import com.yuqi.yuaicodemother.exception.ErrorCode;
-import com.yuqi.yuaicodemother.model.entity.User;
+import com.yuqi.yuaicodemother.model.entity.*;
+import com.yuqi.yuaicodemother.model.vo.*;
+import com.yuqi.yuaicodemother.model.dto.user.*;
 import com.yuqi.yuaicodemother.mapper.UserMapper;
 import com.yuqi.yuaicodemother.model.enums.UserRoleEnum;
 import com.yuqi.yuaicodemother.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
+import cn.hutool.core.bean.BeanUtil;
+import org.springframework.util.DigestUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import cn.hutool.core.util.StrUtil;
+import java.util.stream.Collectors;
+
+import static com.yuqi.yuaicodemother.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 用户 服务层实现。
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
+ * @author <a href="https://github.com/liyupi">wuyq</a>
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements UserService{
@@ -141,17 +153,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
         return userList.stream().map(this::getUserVO).collect(Collectors.toList());
     }
 
-    @Override
-    public boolean userLogout(HttpServletRequest request) {
-        // 先判断用户是否登录
-        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
-        if (userObj == null) {
-            throw new BusinessException(ErrorCode.OPERATION_ERROR, "用户未登录");
-        }
-        // 移除登录态
-        request.getSession().removeAttribute(USER_LOGIN_STATE);
-        return true;
-    }
+
 
     @Override
     public QueryWrapper getQueryWrapper(UserQueryRequest userQueryRequest) {
