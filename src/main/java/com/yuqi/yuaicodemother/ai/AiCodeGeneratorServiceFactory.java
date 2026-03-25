@@ -1,5 +1,7 @@
 package com.yuqi.yuaicodemother.ai;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.yuqi.yuaicodemother.service.ChatHistoryService;
 import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
@@ -11,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
+import java.time.Duration;
 
 
 /**
