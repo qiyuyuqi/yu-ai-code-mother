@@ -19,6 +19,8 @@ public interface AppService extends IService<App> {
 
     AppVO getAppVO(App app);
 
+    Long createApp(AppAddRequest appAddRequest, User loginUser);
+
     QueryWrapper getQueryWrapper(AppQueryRequest appQueryRequest);
 
 
@@ -28,4 +30,5 @@ public interface AppService extends IService<App> {
 
     public List<AppVO> getAppVOList(List<App> appList);
 
+    void generateAppScreenshotAsync(Long appId, String appUrl);
 }

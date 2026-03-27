@@ -60,7 +60,9 @@ declare namespace API {
     data?: boolean
     message?: string
   }
-
+  type downloadAppCodeParams = {
+    appId: number
+  }
   type BaseResponseLoginUserVO = {
     code?: number
     data?: LoginUserVO
