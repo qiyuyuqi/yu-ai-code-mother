@@ -26,7 +26,7 @@ import static com.yuqi.yuaicodemother.constant.UserConstant.USER_LOGIN_STATE;
 /**
  * 用户 服务层实现。
  *
- * @author <a href="https://github.com/liyupi">wuyq</a>
+ * @author <a href="https://github.com/yuqiqiyu">wuyq</a>
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements UserService{

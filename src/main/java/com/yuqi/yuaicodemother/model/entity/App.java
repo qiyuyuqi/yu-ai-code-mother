@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 /**
  * 应用 实体类。
  *
- * @author <a href="https://github.com/liyupi">wuyq</a>
+ * @author <a href="https://github.com/yuqiqiyu">wuyq</a>
  */
 @Data
 @Builder

@@ -32,7 +32,7 @@ import com.yuqi.yuaicodemother.common.DeleteRequest;
 /**
  * 用户 控制层。
  *
- * @author <a href="https://github.com/liyupi">wuyq</a>
+ * @author <a href="https://github.com/yuqiqiyu">wuyq</a>
  */
 @RestController
 @RequestMapping("/user")

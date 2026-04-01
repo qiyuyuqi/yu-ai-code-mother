@@ -3,6 +3,7 @@ package com.yuqi.yuaicodemother.ai;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.yuqi.yuaicodemother.ai.tools.FileWriteTool;
+import com.yuqi.yuaicodemother.ai.tools.ToolManager;
 import com.yuqi.yuaicodemother.exception.BusinessException;
 import com.yuqi.yuaicodemother.exception.ErrorCode;
 import com.yuqi.yuaicodemother.model.enums.CodeGenTypeEnum;
@@ -73,6 +74,9 @@ public class AiCodeGeneratorServiceFactory {
 
     @Resource
     private ChatHistoryService chatHistoryService;
+
+    @Resource
+    private ToolManager toolManager;
     /**
      * 创建新的 AI 服务实例
      */
@@ -95,7 +99,7 @@ public class AiCodeGeneratorServiceFactory {
             case VUE_PROJECT -> AiServices.builder(AiCodeGeneratorService.class)
                     .streamingChatModel(reasoningStreamingChatModel)
                     .chatMemoryProvider(memoryId -> chatMemory)
-                    .tools(new FileWriteTool())
+                    .tools(toolManager.getAllTools())
                     .hallucinatedToolNameStrategy(toolExecutionRequest -> ToolExecutionResultMessage.from(
                             toolExecutionRequest, "Error: there is no tool called " + toolExecutionRequest.name()
                     ))

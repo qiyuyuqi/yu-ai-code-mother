@@ -75,7 +75,7 @@ public class MyBatisCodeGenerator {
 
         // 设置生成时间和字符串为空，避免多余的代码改动
         globalConfig.getJavadocConfig()
-                .setAuthor("<a href=\"https://github.com/liyupi\">wuyq</a>")
+                .setAuthor("<a href=\"https://github.com/yuqiqiyu\">wuyq</a>")
                 .setSince("");
         return globalConfig;
     }

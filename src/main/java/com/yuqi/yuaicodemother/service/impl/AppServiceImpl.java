@@ -43,7 +43,7 @@ import cn.hutool.core.util.StrUtil;
 /**
  * 应用 服务层实现。
  *
- * @author <a href="https://github.com/liyupi">wuyq</a>
+ * @author <a href="https://github.com/yuqiqiyu">wuyq</a>
  */
 @Service
 @Slf4j
